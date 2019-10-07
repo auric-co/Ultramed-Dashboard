@@ -2,8 +2,8 @@
 /**
  * Created by PhpStorm.
  * User: Chris
- * Date: 9/23/2019
- * Time: 4:27 PM
+ * Date: 10/7/2019
+ * Time: 12:33 PM
  */
 
 require_once dirname(__FILE__) . '/../system/System.php';
@@ -12,6 +12,18 @@ $ultra = new System();
 if ($ultra->checkLoginState() != true){
     header('location:'.$ultra->domain().'/login?error=login-required');
     exit();
+}
+
+
+if (isset($_POST['submit'])){
+    $pwd= $_POST['password'];
+    $confirmPwd= $_POST['confirmPassword'];
+    $email = $_POST['email'];
+
+    $ultra->setEmail($email);
+    $ultra->setPassword($pwd);
+    $ultra->setConfirmPassword($confirmPwd);
+    $ultra->register();
 }
 ?>
 <!DOCTYPE html>
@@ -119,24 +131,41 @@ if ($ultra->checkLoginState() != true){
         <!-- Breadcrumb-->
         <div class="container-fluid">
             <div class="animated fadeIn">
-                <div class="card">
-                    <div class="card-body">
-                        <div class="row">
-                            <div class="col-sm-5">
-                                <h4 class="card-title mb-0">Create Account</h4>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="card">
+                            <div class="card-header"><strong>Create Dashboard Account</strong></div>
+                            <div class="card-body">
+                                <form class="form-horizontal" action="" method="post" enctype="multipart/form-data" id="admin">
+
+                                    <div class="form-group row">
+                                        <label class="col-md-3 col-form-label" for="email-input">Email</label>
+                                        <div class="col-md-9">
+                                            <input class="form-control" required id="email" type="email" name="email" placeholder="Enter Email">
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label class="col-md-3 col-form-label" for="password">Password</label>
+                                        <div class="col-md-9">
+                                            <input class="form-control" required id="password" type="password" name="password" placeholder="Password">
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label class="col-md-3 col-form-label" for="password">Confirm Password</label>
+                                        <div class="col-md-9">
+                                            <input class="form-control" required id="confirmPassword" type="password" name="confirmPassword" placeholder="Confirm Password">
+                                            <span class="invalid-feedback">Passwordss do not match.</span>
+                                        </div>
+                                    </div>
+                                </form>
                             </div>
-                            <!-- /.col-->
-                        </div>
-                        <div class="col-md-12">
-                            <!-- Creation form here-->
+                            <div class="card-footer">
+                                <button class="btn btn-sm btn-primary" type="submit" name="submit" form="admin"><i class="fa fa-dot-circle-o"></i> Submit</button>
+                                <button class="btn btn-sm btn-danger" type="reset" form="admin">
+                                    <i class="fa fa-ban"></i> Reset</button>
+                            </div>
                         </div>
                     </div>
-
-
-
-                </div>
-                <!-- /.row-->
-                <div class="row">
                     <div class="col-md-12">
                         <div class="card">
                             <div class="card-header">Dashboard Users</div>
@@ -155,26 +184,62 @@ if ($ultra->checkLoginState() != true){
                                     </tr>
                                     </thead>
                                     <tbody>
-                                    <tr>
-                                        <td class="text-center">
-                                            <div class="avatar">
-                                                <img class="img-avatar" src="img/avatars/6.png" alt="user@ultramedhealth.com">
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div>Yiorgos Avraamu</div>
-                                            <div class="small text-muted">
-                                                <span>New</span> | Registered: Jan 1, 2015</div>
-                                        </td>
-                                        <td class="text-center">
-                                            <div>user@ultramedhealth.com</div>
-                                        </td>
-                                        <td>
-                                            <div class="small text-muted">Last login</div>
-                                            <strong>10 sec ago</strong>
-                                        </td>
+                                    <?php
+                                    $curl = curl_init();
+                                    curl_setopt_array($curl, array(
+                                        CURLOPT_URL => "http://ussd.ultramedhealth.com/api/v1/dashboard/admin/accounts",
+                                        CURLOPT_RETURNTRANSFER => true,
+                                        CURLOPT_ENCODING => "",
+                                        CURLOPT_MAXREDIRS => 10,
+                                        CURLOPT_TIMEOUT => 30,
+                                        CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+                                        CURLOPT_CUSTOMREQUEST => "GET",
+                                        CURLOPT_POSTFIELDS => "",
+                                        CURLOPT_HTTPHEADER => array(
+                                            "content-type: application/json",
+                                        ),
+                                    ));
 
-                                    </tr>
+                                    $response = curl_exec($curl);
+                                    $err = curl_error($curl);
+                                    $data = json_decode($response, true);
+
+                                    if ($err) {
+
+                                        echo "<script>alert('Fetch Error : ".$err."')</script>";
+                                        echo "<script>window.open('".$this->domain()."/admin?success=false?message=connection to backend failed', '_self')</script>";
+
+                                    } else {
+                                        if($data['success'] == true){
+                                            ?>
+                                            <tr>
+
+                                                <td class="text-center">
+                                                    <div class="avatar">
+                                                        <img class="img-avatar" src="img/avatars/6.png" alt="user@ultramedhealth.com">
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div><?php echo $data['users']['nname']."  ".$data['users']['surname']?></div>
+                                                    <div class="small text-muted">
+                                                        <span></span> | </div>
+                                                </td>
+                                                <td class="text-center">
+                                                    <div><?php echo $data['users']['email']?></div>
+                                                </td>
+                                                <td>
+                                                    <div class="small text-muted">Last login</div>
+                                                    <strong>10 sec ago</strong>
+                                                </td>
+
+                                            </tr>
+                                            <?php
+                                        }
+                                    }
+                                    curl_close($curl);
+
+                                    ?>
+
                                     </tbody>
                                 </table>
                             </div>
@@ -225,6 +290,27 @@ if ($ultra->checkLoginState() != true){
 <script src="vendors/@coreui/coreui/js/coreui.min.js"></script>
 <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.js"></script>
 <script>
+    let pwd = document.querySelector('#password');
+    let cpwd = document.querySelector('#confimrPassword');
+
+    /*cpwd.addEventListener('focus', function() {
+        if(pwd !== cpwd){
+            cpwd.classList.add("is-invalid");
+            //set cpwd class to red
+            //add text passwords do not match
+        }
+    });
+
+    cpwd.addEventListener('blur', function() {
+        if(pwd === cpwd){
+            cpwd.classList.remove("is-invalid");
+            pwd.classList.remove("is-invalid");
+            cpwd.classList.add("is-valid");
+            pwd.classList.add("is-valid");
+        }
+    });
+
+*/
     $(document).ready( function () {
         $('#users').DataTable();
     } );

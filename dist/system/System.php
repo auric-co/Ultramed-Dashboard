@@ -7,6 +7,7 @@
  * Time: 12:07 PM
  */
 include_once dirname(__FILE__) . '/Database.php';
+require_once dirname(__FILE__). '/vendor/autoload.php';
 class System
 {
 
@@ -14,10 +15,14 @@ class System
     protected $con;
     protected $token;
     protected $email;
+    protected $name;
+    protected $lastName;
     protected $id;
     protected $serial;
     protected $password;
-
+    protected $confirmPassword;
+    protected $permission;
+    protected $dept;
 
     /**
      * @return mixed
@@ -94,6 +99,54 @@ class System
 
 
     /**
+     * @return mixed
+     */
+    public function getConfirmPassword()
+    {
+        return $this->confirmPassword;
+    }
+
+    /**
+     * @param mixed $confirmPassword
+     */
+    public function setConfirmPassword($confirmPassword)
+    {
+        $this->confirmPassword = $confirmPassword;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getPermission()
+    {
+        return $this->permission;
+    }
+
+    /**
+     * @param mixed $permission
+     */
+    public function setPermission($permission)
+    {
+        $this->permission = $permission;
+    }
+
+    /**
+     * @param mixed $dept
+     */
+    public function setDept($dept)
+    {
+        $this->dept = $dept;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getDept()
+    {
+        return $this->dept;
+    }
+
+    /**
      * @param mixed $token
      */
     public function setToken($token)
@@ -120,6 +173,7 @@ class System
         $uri .= $_SERVER['HTTP_HOST'];
         return $uri;
     }
+
     public function checkLoginState(){
 
         if(!isset($_SESSION)){
@@ -170,8 +224,6 @@ class System
 
     }
 
-
-
     public function createSession($admin_name, $serial){
         if(!isset($_SESSION)){
             session_start();
@@ -185,6 +237,7 @@ class System
         setcookie('username', $admin_name, time() + (86400) * 30, "/");
         setcookie('serial', $serial, time() + (86400) * 30, "/");
     }
+
     public function deleteCookie(){
         session_unset();
         setcookie('username', '', time() -1, "/");
@@ -235,6 +288,49 @@ class System
             }else{
                 echo "<script>alert('".$data['error']['type']." : ".$data['error']['message']."')</script>";
                 echo "<script>window.open('".$this->domain()."/login', '_self')</script>";
+            }
+        }
+        curl_close($curl);
+
+    }
+
+    public function register(){
+        $request = json_encode(array('email' => $this->getEmail(), 'password' => $this->getPassword(), 'confirmPassword' => $this->getConfirmPassword(), 'permission' => 2, 'dept' => 1));
+        $curl = curl_init();
+        curl_setopt_array($curl, array(
+            CURLOPT_URL => "http://ussd.ultramedhealth.com/api/v1/dashboard/admin/create",
+            CURLOPT_RETURNTRANSFER => true,
+            CURLOPT_ENCODING => "",
+            CURLOPT_MAXREDIRS => 10,
+            CURLOPT_TIMEOUT => 30,
+            CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+            CURLOPT_CUSTOMREQUEST => "PUT",
+            CURLOPT_POSTFIELDS => $request,
+            CURLOPT_HTTPHEADER => array(
+                "content-type: application/json",
+            ),
+        ));
+
+        $response = curl_exec($curl);
+        $err = curl_error($curl);
+        $data = json_decode($response, true);
+
+        if ($err) {
+
+            echo "<script>alert('Account creation error : ".$err."')</script>";
+            echo "<script>window.open('".$this->domain()."/base/register.php?success=false?message=connection to backend failed', '_self')</script>";
+
+        } else {
+            if($data['success'] == true){
+
+                echo "<script>alert('".$data['message']."')</script>";
+                echo "<script>window.open('".$this->domain()."/admin?success=true?message=account created', '_self')</script>";
+
+            }else{
+
+                echo "<script>alert('".$data['error']['type']." : ".$data['error']['message']."')</script>";
+                echo "<script>window.open('".$this->domain()."/admin?success=false?message=account creation failed', '_self')</script>";
+
             }
         }
         curl_close($curl);
