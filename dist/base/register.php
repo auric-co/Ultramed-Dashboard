@@ -2,8 +2,8 @@
 /**
  * Created by PhpStorm.
  * User: Chris
- * Date: 9/23/2019
- * Time: 4:27 PM
+ * Date: 10/7/2019
+ * Time: 12:33 PM
  */
 
 require_once dirname(__FILE__) . '/../system/System.php';
@@ -12,6 +12,30 @@ $ultra = new System();
 if ($ultra->checkLoginState() != true){
     header('location:'.$ultra->domain().'/login?error=login-required');
     exit();
+}
+
+
+if (isset($_POST['submit'])){
+    $msisdn = $_POST['phn'];
+    $name = $_POST['name'];
+    $surname = $_POST['surname'];
+    $id = $_POST['idnum'];
+    $dob = $_POST['dob'];
+    $gender = $_POST['gender'];
+    $addr = $_POST['address'];
+    $twn = $_POST['town'];
+    $package = $_POST['package'];
+
+    $ultra->setName($name);
+    $ultra->setLastName($surname);
+    $ultra->setNationID($id);
+    $ultra->setDob($dob);
+    $ultra->setMobile($msisdn);
+    $ultra->setGender($gender);
+    $ultra->setAddress($addr);
+    $ultra->setTown($twn);
+    $ultra->setPackage($package);
+    $ultra->addMember();
 }
 ?>
 <!DOCTYPE html>
@@ -85,8 +109,8 @@ if ($ultra->checkLoginState() != true){
                     </a>
                 </li>
                 <li class="nav-title">Members</li>
-                <li class="nav-item">
-                    <a class="nav-link active" href="base/register.php">
+                <li class="nav-item active">
+                    <a class="nav-link" href="base/register.php">
                         <i class="nav-icon icon-drop"></i> Register</a>
                 </li>
                 <li class="nav-item">
@@ -117,66 +141,134 @@ if ($ultra->checkLoginState() != true){
     </div>
     <main class="main">
         <!-- Breadcrumb-->
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item">Home</li>
+            <li class="breadcrumb-item active">Register New Member</li>
+            <!-- Breadcrumb Menu-->
+            <li class="breadcrumb-menu d-md-down-none">
+                <div class="btn-group" role="group" aria-label="Button group">
+                    <a class="btn" href="#">
+                        <i class="icon-speech"></i>
+                    </a>
+                    <a class="btn" href="./">
+                        <i class="icon-graph"></i>  Dashboard</a>
+                    <a class="btn" href="./../../settings">
+                        <i class="icon-settings"></i>  Settings</a>
+                </div>
+            </li>
+        </ol>
         <div class="container-fluid">
             <div class="animated fadeIn">
-                <div class="card">
-                    <div class="card-body">
-                        <div class="row">
-                            <div class="col-sm-5">
-                                <h4 class="card-title mb-0">Create Account</h4>
-                            </div>
-                            <!-- /.col-->
-                        </div>
-                        <div class="col-md-12">
-                            <!-- Creation form here-->
-                        </div>
-                    </div>
-
-
-
-                </div>
-                <!-- /.row-->
                 <div class="row">
                     <div class="col-md-12">
                         <div class="card">
-                            <div class="card-header">Dashboard Users</div>
+                            <div class="card-header"><strong>Register Member</strong></div>
                             <div class="card-body">
+                                <form class="form-horizontal" action="" method="post" enctype="multipart/form-data" id="register">
+                                    <div class="form-group row">
+                                        <label class="col-md-3 col-form-label" for="select1">Select Medical AID Package</label>
+                                        <div class="col-md-9">
+                                            <select class="form-control" id="package" name="package">
+                                                <option value="0">Please select</option>
+                                                <?php
+                                                $curl = curl_init();
+                                                curl_setopt_array($curl, array(
+                                                    CURLOPT_URL => "http://ussd.ultramedhealth.com/api/v1/ussd/subscriptions/packages",
+                                                    CURLOPT_RETURNTRANSFER => true,
+                                                    CURLOPT_ENCODING => "",
+                                                    CURLOPT_MAXREDIRS => 10,
+                                                    CURLOPT_TIMEOUT => 30,
+                                                    CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+                                                    CURLOPT_CUSTOMREQUEST => "GET",
+                                                    CURLOPT_POSTFIELDS => "",
+                                                    CURLOPT_HTTPHEADER => array(
+                                                        "content-type: application/json",
+                                                    ),
+                                                ));
 
-                                <br>
-                                <table class="table table-responsive-sm table-hover table-outline mb-0" id="users">
-                                    <thead class="thead-light">
-                                    <tr>
-                                        <th class="text-center">
-                                            <i class="icon-people"></i>
-                                        </th>
-                                        <th>Name</th>
-                                        <th class="text-center">Email</th>
-                                        <th>Status</th>
-                                    </tr>
-                                    </thead>
-                                    <tbody>
-                                    <tr>
-                                        <td class="text-center">
-                                            <div class="avatar">
-                                                <img class="img-avatar" src="img/avatars/6.png" alt="user@ultramedhealth.com">
+                                                $response = curl_exec($curl);
+                                                $err = curl_error($curl);
+                                                $data = json_decode($response, true);
+
+                                                if ($err) {
+                                                    echo '<option value="">No Results Found</option>';
+                                                }
+                                                else{
+                                                    if ($data['success'] == true){
+                                                        foreach ($data['packages'] as $key){
+                                                            echo '<option value="'.$key['id'].'">'.$key['name'].'</option>';
+                                                        }
+                                                    }else{
+                                                        echo '<option value="">No Packages Found</option>';
+
+                                                    }
+                                                }
+                                                ?>
+
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label class="col-md-3 col-form-label" for="name">First Name</label>
+                                        <div class="col-md-9">
+                                            <input class="form-control" required id="name" type="text" name="name" placeholder="First Name">
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label class="col-md-3 col-form-label" for="surname">Surname</label>
+                                        <div class="col-md-9">
+                                            <input class="form-control" required id="surname" type="text" name="surname" placeholder="Surname">
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label class="col-md-3 col-form-label">Gender</label>
+                                        <div class="col-md-9 col-form-label">
+                                            <div class="form-check form-check-inline mr-1">
+                                                <input class="form-check-input" id="gender1" type="radio" required value="Female" name="gender">
+                                                <label class="form-check-label" for="gender1">Female</label>
                                             </div>
-                                        </td>
-                                        <td>
-                                            <div>Yiorgos Avraamu</div>
-                                            <div class="small text-muted">
-                                                <span>New</span> | Registered: Jan 1, 2015</div>
-                                        </td>
-                                        <td class="text-center">
-                                            <div>user@ultramedhealth.com</div>
-                                        </td>
-                                        <td>
-                                            <div class="small text-muted">Last login</div>
-                                            <strong>10 sec ago</strong>
-                                        </td>
-
-                                    </tr>
-                                    </tbody>
-                                </table>
+                                            <div class="form-check form-check-inline mr-1">
+                                                <input class="form-check-input" id="gender" type="radio" value="Male" required name="gender">
+                                                <label class="form-check-label" for="gender">Male</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label class="col-md-3 col-form-label" for="phn">Phone Number</label>
+                                        <div class="col-md-9">
+                                            <input class="form-control" required id="phn" type="text" name="phn" placeholder="Enter Member Phone Number">
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label class="col-md-3 col-form-label" for="idnum">ID Number</label>
+                                        <div class="col-md-9">
+                                            <input class="form-control" required id="idnum" type="text" name="idnum" placeholder="ID Number">
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label class="col-md-3 col-form-label" for="dob">Date of Birth</label>
+                                        <div class="col-md-9">
+                                            <input class="form-control" required id="dob" type="date" name="dob" placeholder="Member D.O.B">
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label class="col-md-3 col-form-label" for="address">Address</label>
+                                        <div class="col-md-9">
+                                            <textarea class="form-control" id="address" name="address" rows="9" placeholder="Address"></textarea>
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label class="col-md-3 col-form-label" for="town">Date of Birth</label>
+                                        <div class="col-md-9">
+                                            <input class="form-control" required id="town" type="text" name="town" placeholder="Town">
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="card-footer">
+                                <button class="btn btn-sm btn-primary" type="submit" name="submit" form="register"><i class="fa fa-dot-circle-o"></i> Submit</button>
+                                <button class="btn btn-sm btn-danger" type="reset" form="register">
+                                    <i class="fa fa-ban"></i> Reset</button>
                             </div>
                         </div>
                     </div>
@@ -225,8 +317,9 @@ if ($ultra->checkLoginState() != true){
 <script src="vendors/@coreui/coreui/js/coreui.min.js"></script>
 <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.js"></script>
 <script>
+
     $(document).ready( function () {
-        $('#users').DataTable();
+        $('#members').DataTable();
     } );
 </script>
 </body>

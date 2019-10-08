@@ -17,6 +17,14 @@ class System
     protected $email;
     protected $name;
     protected $lastName;
+    protected $dob;
+    protected $mobile;
+    protected $address;
+    protected $pin;
+    protected $town;
+    protected $gender;
+    protected $package;
+    protected $nationID;
     protected $id;
     protected $serial;
     protected $password;
@@ -31,6 +39,39 @@ class System
     {
         return $this->email;
     }
+
+    /**
+     * @param mixed $gender
+     */
+    public function setGender($gender)
+    {
+        $this->gender = $gender;
+    }
+
+    /**
+     * @param mixed $package
+     */
+    public function setPackage($package)
+    {
+        $this->package = $package;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getPackage()
+    {
+        return $this->package;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getGender()
+    {
+        return $this->gender;
+    }
+
 
     /**
      * @return mixed
@@ -55,6 +96,134 @@ class System
     public function getToken()
     {
         return $this->token;
+    }
+
+    /**
+     * @param mixed $town
+     */
+    public function setTown($town)
+    {
+        $this->town = $town;
+    }
+
+    /**
+     * @param mixed $pin
+     */
+    public function setPin($pin)
+    {
+        $this->pin = $pin;
+    }
+
+    /**
+     * @param mixed $nationID
+     */
+    public function setNationID($nationID)
+    {
+        $this->nationID = $nationID;
+    }
+
+    /**
+     * @param mixed $name
+     */
+    public function setName($name)
+    {
+        $this->name = $name;
+    }
+
+    /**
+     * @param mixed $mobile
+     */
+    public function setMobile($mobile)
+    {
+        $this->mobile = $mobile;
+    }
+
+    /**
+     * @param mixed $lastName
+     */
+    public function setLastName($lastName)
+    {
+        $this->lastName = $lastName;
+    }
+
+    /**
+     * @param mixed $dob
+     */
+    public function setDob($dob)
+    {
+        $this->dob = $dob;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getTown()
+    {
+        return $this->town;
+    }
+
+    /**
+     * @param mixed $address
+     */
+    public function setAddress($address)
+    {
+        $this->address = $address;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getPin()
+    {
+        return $this->pin;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getNationID()
+    {
+        return $this->nationID;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getName()
+    {
+        return $this->name;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getMobile()
+    {
+        return $this->mobile;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getLastName()
+    {
+        return $this->lastName;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getDob()
+    {
+        return $this->dob;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getAddress()
+    {
+        return $this->address;
     }
 
     /**
@@ -335,5 +504,47 @@ class System
         }
         curl_close($curl);
 
+    }
+
+    public function addMember(){
+
+	    $request = json_encode(array('msisdn' => $this->getMobile(),'ID' => $this->getNationID(), 'pin'=> "0000", 'name' => $this->getName(), 'surname' => $this->getLastName(),
+            'D.O.B' => $this->getDob(), 'gender' => $this->getGender(), 'address' => $this->getAddress(), 'town' => $this->getTown(), 'package' => $this->getPackage()));
+        $curl = curl_init();
+        curl_setopt_array($curl, array(
+            CURLOPT_URL => "http://ussd.ultramedhealth.com/api/v1/ussd/member/register",
+            CURLOPT_RETURNTRANSFER => true,
+            CURLOPT_ENCODING => "",
+            CURLOPT_MAXREDIRS => 10,
+            CURLOPT_TIMEOUT => 30,
+            CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+            CURLOPT_CUSTOMREQUEST => "PUT",
+            CURLOPT_POSTFIELDS => $request,
+            CURLOPT_HTTPHEADER => array(
+                "content-type: application/json",
+            ),
+        ));
+
+        $response = curl_exec($curl);
+        $err = curl_error($curl);
+        $data = json_decode($response, true);
+
+        if ($err) {
+
+            echo "<script>alert('Fetch Error : ".$err."')</script>";
+            echo "<script>window.open('".$this->domain()."/base/register.php?success=false?message=connection to backend failed', '_self')</script>";
+
+        }
+        else{
+            if($data['success'] == true){
+
+                echo "<script>alert('".$data['message']."')</script>";
+                echo "<script>window.open('".$this->domain()."/base/members.php?success=true?message=member saved', '_self')</script>";
+
+            }else{
+                echo "<script>alert('".$data['error']['type']." : ".$data['error']['message']."')</script>";
+                echo "<script>window.open('".$this->domain()."/base/register.php?success=false?message=member not saved', '_self')</script>";
+            }
+        }
     }
 }

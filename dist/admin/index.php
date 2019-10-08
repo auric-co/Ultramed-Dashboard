@@ -98,7 +98,7 @@ if (isset($_POST['submit'])){
                 </li>
                 <li class="nav-title">Members</li>
                 <li class="nav-item">
-                    <a class="nav-link active" href="base/register.php">
+                    <a class="nav-link" href="./base/register.php">
                         <i class="nav-icon icon-drop"></i> Register</a>
                 </li>
                 <li class="nav-item">
@@ -209,32 +209,40 @@ if (isset($_POST['submit'])){
                                         echo "<script>alert('Fetch Error : ".$err."')</script>";
                                         echo "<script>window.open('".$this->domain()."/admin?success=false?message=connection to backend failed', '_self')</script>";
 
-                                    } else {
-                                        if($data['success'] == true){
+                                    }
+                                    else {
+                                        if($data['success'] == true) {
+                                            foreach ($data['users'] as $key) {
+                                                ?>
+                                                <tr>
+
+                                                    <td class="text-center">
+                                                        <div class="avatar">
+                                                            <img class="img-avatar" src="img/avatars/6.png" alt="<?php echo $key['email'] ?>">
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <div><?php echo $key['name'] . "  " . $key['surname'] ?></div>
+                                                        <div class="small text-muted">
+                                                            <span></span> |
+                                                        </div>
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <div><?php echo $key['email'] ?></div>
+                                                    </td>
+                                                    <td>
+                                                        <div class="small text-muted">Last login</div>
+                                                        <strong>NULL</strong>
+                                                    </td>
+
+                                                </tr>
+                                                <?php
+                                            }
                                             ?>
-                                            <tr>
 
-                                                <td class="text-center">
-                                                    <div class="avatar">
-                                                        <img class="img-avatar" src="img/avatars/6.png" alt="user@ultramedhealth.com">
-                                                    </div>
-                                                </td>
-                                                <td>
-                                                    <div><?php echo $data['users']['nname']."  ".$data['users']['surname']?></div>
-                                                    <div class="small text-muted">
-                                                        <span></span> | </div>
-                                                </td>
-                                                <td class="text-center">
-                                                    <div><?php echo $data['users']['email']?></div>
-                                                </td>
-                                                <td>
-                                                    <div class="small text-muted">Last login</div>
-                                                    <strong>10 sec ago</strong>
-                                                </td>
-
-                                            </tr>
                                             <?php
                                         }
+
                                     }
                                     curl_close($curl);
 

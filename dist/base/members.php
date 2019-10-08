@@ -32,7 +32,7 @@ if ($ultra->checkLoginState() != true){
     <meta name="description" content="CoreUI - Open Source Bootstrap Admin Template">
     <meta name="author" content="Łukasz Holeczek">
     <meta name="keyword" content="Bootstrap,Admin,Template,Open,Source,jQuery,CSS,HTML,RWD,Dashboard">
-    <title>Create Account - Ultra-Med Health</title>
+    <title>Members - Ultra-Med Health</title>
     <!-- Icons-->
     <link rel="apple-touch-icon" sizes="180x180" href="img/icons/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="img/icons/favicon-32x32.png">
@@ -86,11 +86,11 @@ if ($ultra->checkLoginState() != true){
                 </li>
                 <li class="nav-title">Members</li>
                 <li class="nav-item">
-                    <a class="nav-link active" href="base/register.php">
+                    <a class="nav-link" href="base/register.php">
                         <i class="nav-icon icon-drop"></i> Register</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="./base/members.php">
+                    <a class="nav-link active" href="./base/members.php">
                         <i class="nav-icon icon-pencil"></i> Manage</a>
                 </li>
                 <li class="nav-title">Claims</li>
@@ -117,13 +117,29 @@ if ($ultra->checkLoginState() != true){
     </div>
     <main class="main">
         <!-- Breadcrumb-->
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item">Home</li>
+            <li class="breadcrumb-item active">Members</li>
+            <!-- Breadcrumb Menu-->
+            <li class="breadcrumb-menu d-md-down-none">
+                <div class="btn-group" role="group" aria-label="Button group">
+                    <a class="btn" href="#">
+                        <i class="icon-speech"></i>
+                    </a>
+                    <a class="btn" href="./">
+                        <i class="icon-graph"></i>  Dashboard</a>
+                    <a class="btn" href="./../../settings">
+                        <i class="icon-settings"></i>  Settings</a>
+                </div>
+            </li>
+        </ol>
         <div class="container-fluid">
             <div class="animated fadeIn">
                 <div class="card">
                     <div class="card-body">
                         <div class="row">
                             <div class="col-sm-5">
-                                <h4 class="card-title mb-0">Create Account</h4>
+                                <h4 class="card-title mb-0">Ultra-Med Health Care</h4>
                             </div>
                             <!-- /.col-->
                         </div>
@@ -139,7 +155,7 @@ if ($ultra->checkLoginState() != true){
                 <div class="row">
                     <div class="col-md-12">
                         <div class="card">
-                            <div class="card-header">Dashboard Users</div>
+                            <div class="card-header"> Members</div>
                             <div class="card-body">
 
                                 <br>
@@ -155,36 +171,88 @@ if ($ultra->checkLoginState() != true){
                                     </tr>
                                     </thead>
                                     <tbody>
-                                    <tr>
-                                        <td class="text-center">
-                                            <div>
-                                                <strong class="text-center text-danger">
-                                                    UMH-011030168-00
-                                                </strong>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div>Yiorgos Avraamu</div>
-                                            <div class="small text-muted">
-                                                <span class="text-capitalize text-danger">Premium +</span> | Registered: Jan 1, 2015</div>
-                                        </td>
-                                        <td class="text-center">
-                                            <div>Male</div>
-                                        </td>
-                                        <td>
-                                            <div class="small text-muted">Active</div>
-                                            <div class="small">
-                                                <span class="text-success">Subscribed</span> | Subscribed on: Jan 1, 2019</div>
-                                        </td>
-                                        <td>
-                                            <div>Total 5</div>
-                                            <div class="small text-muted">
-                                                <a href="" class="">View All</a> | Last Added: Jan 1, 2019</div>
-                                        </td>
-                                        <td>
+                                    <?php
+                                    $curl = curl_init();
+                                    curl_setopt_array($curl, array(
+                                        CURLOPT_URL => "http://ussd.ultramedhealth.com/api/v1/dashboard/admin/members/all",
+                                        CURLOPT_RETURNTRANSFER => true,
+                                        CURLOPT_ENCODING => "",
+                                        CURLOPT_MAXREDIRS => 10,
+                                        CURLOPT_TIMEOUT => 30,
+                                        CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+                                        CURLOPT_CUSTOMREQUEST => "GET",
+                                        CURLOPT_POSTFIELDS => "",
+                                        CURLOPT_HTTPHEADER => array(
+                                            "content-type: application/json",
+                                        ),
+                                    ));
 
-                                        </td>
-                                    </tr>
+                                    $response = curl_exec($curl);
+                                    $err = curl_error($curl);
+                                    $data = json_decode($response, true);
+
+                                    if ($err) {
+
+                                    }
+                                    else{
+                                        if ($data['success'] == true){
+                                            foreach ($data['member'] as $key){
+                                                ?>
+                                                <tr>
+                                                    <td class="text-center">
+                                                        <div>
+                                                            <strong class="text-center text-danger">
+                                                                <?php echo $key['membership-number'];?>
+                                                            </strong>
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <div><?php echo $key['name']."  ".$key['surname'];?></div>
+                                                        <div class="small text-muted">
+                                                            <span class="text-capitalize text-danger"><?php echo $key['package']; ?></span> | Registered: <?php echo  date('d M Y', strtotime($key['registered']))?></div>
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <div><?php echo $key['gender'];?></div>
+                                                    </td>
+                                                    <td>
+                                                        <div class="small text-muted">Active</div>
+                                                        <div class="small">
+                                                            <?php
+                                                                if ($key['subscription']['status']){
+                                                                    echo '<span class="text-success">Subscribed</span>
+                                                                          | Paid on: '.date('d M Y', strtotime($key['subscription']['date']));
+                                                                }else{
+                                                                    if ($key['subscription']['date'] ==  null){
+                                                                        echo '<span class="text-danger">Not Subscribed</span>
+                                                                          | Never Subscribed';
+                                                                    }else{
+                                                                        echo '<span class="text-danger">Not Subscribed</span>
+                                                                          | Expired on: '.date('d M Y', strtotime($key['subscription']['date']));
+                                                                    }
+
+                                                                }
+
+                                                            ?></div>
+                                                    </td>
+                                                    <td>
+                                                        <div>Total <?php echo sizeof($key['dependants'])?></div>
+                                                        <div class="small text-muted">
+                                                            <a href="./base/dependants.php?member=<?php echo $key['id'];?>" class="<?php if (sizeof($key['dependants']) == 0){ echo 'btn-link disabled'; } ?>" <?php if (sizeof($key['dependants']) == 0){ echo 'tabindex="-1"'; } ?>>View All</a> <!--| Last Added: Jan 1, 2019 --></div>
+                                                    </td>
+                                                    <td>
+                                                        <div>
+                                                            <a href="./base/details.php?member=<?php echo $key['id'];?>">Read More <i class="fa fa-arrow-right"></i></a>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <?php
+                                            }
+                                        }
+                                    }
+
+
+                                    ?>
+
                                     </tbody>
                                 </table>
                             </div>
