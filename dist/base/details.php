@@ -194,10 +194,11 @@ if ($ultra->checkLoginState() != true){
                                                                 if ($key['subscription']['status'] == true){
                                                                     echo '<span class="text-success">Subscribed</span>';
                                                                 }else{
-                                                                    echo '<span class="badge badge-danger">Not Subscribed</span>';
+                                                                    echo '<span class="text-danger">Not Subscribed</span>';
                                                                 }
 
-                                                                echo '<br> <i class="fa fa-briefcase mr-2"></i>'.$key['package']; ?>    | <?php echo $key['gender']; ?>   |  Total Dependants (<?php echo sizeof($key['dependants']);?>)</p>
+                                                                echo '| <span class="text-success"><i class="fa fa-briefcase mr-2"></i>'.$key['package'].'</span>'; ?>   | <?php echo $key['gender']; ?>   |  Total Dependants (<?php echo sizeof($key['dependants']);?>)
+                                                            </p>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -205,10 +206,13 @@ if ($ultra->checkLoginState() != true){
                                                 <div class="bg-light p-4 d-flex justify-content-end text-center">
                                                     <ul class="list-inline mb-0">
                                                         <li class="list-inline-item">
-                                                            <h5 class="font-weight-bold mb-0 d-block"></h5><small class="text-muted"> </small>
+                                                            <h5 class="font-weight-bold mb-0 d-block"></h5><a href="#" class="btn btn-sm btn-success">Edit</a>
                                                         </li>
                                                         <li class="list-inline-item">
-                                                            <h5 class="font-weight-bold mb-0 d-block"></h5><small class="text-muted"> </small>
+                                                            <h5 class="font-weight-bold mb-0 d-block"></h5><a href="#" class="btn btn-sm btn-warning">Suspend</a>
+                                                        </li>
+                                                        <li class="list-inline-item">
+                                                            <h5 class="font-weight-bold mb-0 d-block"></h5><a href="#" class="btn btn-sm btn-danger">Deactivate</a>
                                                         </li>
                                                     </ul>
                                                 </div>
