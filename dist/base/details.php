@@ -60,6 +60,7 @@ if ($ultra->checkLoginState() != true){
         gtag('config', 'UA-118965717-3');
         // Bootstrap ID
         gtag('config', 'UA-118965717-5');
+
     </script>
 </head>
 <body class="app header-fixed sidebar-fixed aside-menu-fixed sidebar-lg-show">
@@ -197,7 +198,11 @@ if ($ultra->checkLoginState() != true){
                                                                     echo '<span class="text-danger">Not Subscribed</span>';
                                                                 }
 
-                                                                echo '| <span class="text-success"><i class="fa fa-briefcase mr-2"></i>'.$key['package'].'</span>'; ?>   | <?php echo $key['gender']; ?>   |  Total Dependants (<?php echo sizeof($key['dependants']);?>)
+                                                                echo '| <span class="text-success"><i class="fa fa-briefcase mr-2"></i>'.$key['package'].'</span>'; ?>   | <?php echo $key['gender']; ?>   |  Total Dependants (<?php echo sizeof($key['dependants']);?>)  |
+                                                                <a href="#" id="edit" class="btn btn-sm btn-success edit-alert">Edit</a>
+                                                                <a href="./base/suspend.php?member=<?php echo $_GET['member']; ?>"  id="<?php echo $key['membership-number'].'.'.$_GET['member']; ?>" class="btn btn-sm btn-warning suspend-alert">Suspend</a>
+                                                                <a href="./base/blacklist.php?member=<?php echo $_GET['member']; ?>" id="<?php echo $key['membership-number'].'.'.$_GET['member']; ?>" class="btn btn-sm btn-secondary blacklist-alert">Blacklist</a>
+                                                                <a href="./base/remove.php?member=<?php echo $_GET['member']; ?>"  id="<?php echo $key['membership-number'].'.'.$_GET['member']; ?>" class="btn btn-sm btn-danger remove-alert">Remove</a>
                                                             </p>
                                                         </div>
                                                     </div>
@@ -206,13 +211,13 @@ if ($ultra->checkLoginState() != true){
                                                 <div class="bg-light p-4 d-flex justify-content-end text-center">
                                                     <ul class="list-inline mb-0">
                                                         <li class="list-inline-item">
-                                                            <h5 class="font-weight-bold mb-0 d-block"></h5><a href="#" class="btn btn-sm btn-success">Edit</a>
+
                                                         </li>
                                                         <li class="list-inline-item">
-                                                            <h5 class="font-weight-bold mb-0 d-block"></h5><a href="#" class="btn btn-sm btn-warning">Suspend</a>
+
                                                         </li>
                                                         <li class="list-inline-item">
-                                                            <h5 class="font-weight-bold mb-0 d-block"></h5><a href="#" class="btn btn-sm btn-danger">Deactivate</a>
+                                                            <h5 class="font-weight-bold mb-0 d-block"></h5>
                                                         </li>
                                                     </ul>
                                                 </div>
@@ -341,19 +346,26 @@ if ($ultra->checkLoginState() != true){
         <a href="https://coreui.io">CoreUI</a>
     </div>
 </footer>
-<!-- CoreUI and necessary plugins-->
+<!-- CoreUI and necessary plugins
+jQuery
+Popper.js
+Bootstrap
+Bootbox
+-->
+
 
 <script src="vendors/jquery/js/jquery.min.js"></script>
-<script src="vendors/popper.js/js/popper.min.js"></script>
 <script src="vendors/bootstrap/js/bootstrap.min.js"></script>
+<script src="vendors/popper.js/js/popper.min.js"></script>
 <script src="vendors/pace-progress/js/pace.min.js"></script>
 <script src="vendors/perfect-scrollbar/js/perfect-scrollbar.min.js"></script>
 <script src="vendors/@coreui/coreui/js/coreui.min.js"></script>
+<script src="vendors/chart.js/js/Chart.min.js"></script>
+<script src="/js/src/bootbox/bootbox.all.min.js"></script>
 <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.js"></script>
+<script src="js/main.js"></script>
 <script>
-    $(document).ready( function () {
-        $('#members').DataTable();
-    } );
+
 </script>
 </body>
 </html>

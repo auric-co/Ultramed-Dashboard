@@ -11,6 +11,100 @@
  * --------------------------------------------------------------------------
  */
 
+$(document).on("click", ".suspend-alert", function(e) {
+    e.preventDefault();
+    let idAtr = $(this).closest(".suspend-alert").attr("id");
+    let id = idAtr.split(".");
+    bootbox.confirm({
+        message: "Suspending member <span class='font-weight-bold text-danger'>Membership-number: </span><span class='font-weight-bold text-dark'>"+ id[0] +"</span>. Are you sure?",
+        buttons: {
+            confirm: {
+                label: 'Yes',
+                className: 'btn-success'
+            },
+            cancel: {
+                label: 'No',
+                className: 'btn-danger'
+            }
+        },
+        callback: function (result) {
+            if(result === true){
+                /*let url = "http://ussd.ultramedhealth.com/api/v1/dashboard/admin/member/update/suspend/" + "<?php echo $_GET['member'] ?>";
+                fetch(url, {
+                    method: 'POST',
+                    cache: 'no-cache',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    }
+                }).then(function(data) {
+                    console.log("Response coming");
+                    console.log(data);
+                })
+                .catch(function(error) {
+                    console.log(error);
+                }); */
+
+            }else{
+                // may do nothing
+            }
+
+        }
+    });
+});
+
+$(document).on("click", ".blacklist-alert", function(e) {
+    e.preventDefault();
+    bootbox.confirm({
+        message: "Blacklisting member. Are you sure?",
+        buttons: {
+            confirm: {
+                label: 'Yes',
+                className: 'btn-success'
+            },
+            cancel: {
+                label: 'No',
+                className: 'btn-danger'
+            }
+        },
+        callback: function (result) {
+            if(result === true){
+                //call api here and produce response, then prompt page reload, or section
+            }else{
+                // may do nothing
+            }
+
+        }
+    });
+});
+
+$(document).on("click", ".remove-alert", function(e) {
+    e.preventDefault();
+    bootbox.confirm({
+        message: "Removing member from database. Are you sure?",
+        buttons: {
+            confirm: {
+                label: 'Yes',
+                className: 'btn-success'
+            },
+            cancel: {
+                label: 'No',
+                className: 'btn-danger'
+            }
+        },
+        callback: function (result) {
+            if(result === true){
+                //call api here and produce response, then prompt page reload, or section
+            }else{
+                // may do nothing
+            }
+
+        }
+    });
+});
+$(document).ready( function () {
+    $('#members').DataTable();
+} );
+
 /* eslint-disable no-magic-numbers */
 // Disable the on-canvas tooltip
 Chart.defaults.global.pointHitDetectionRadius = 1;

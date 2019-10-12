@@ -330,11 +330,14 @@ if ($ultra->checkLoginState() != true){
 <!-- CoreUI and necessary plugins-->
 
 <script src="vendors/jquery/js/jquery.min.js"></script>
-<script src="vendors/popper.js/js/popper.min.js"></script>
 <script src="vendors/bootstrap/js/bootstrap.min.js"></script>
+<script src="vendors/popper.js/js/popper.min.js"></script>
 <script src="vendors/pace-progress/js/pace.min.js"></script>
 <script src="vendors/perfect-scrollbar/js/perfect-scrollbar.min.js"></script>
 <script src="vendors/@coreui/coreui/js/coreui.min.js"></script>
+<script src="vendors/chart.js/js/Chart.min.js"></script>
+<script src="js/main.js"></script>
+<script src="/js/src/bootbox/bootbox.all.min.js"></script>
 <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.js"></script>
 <script>
     $(document).ready( function () {
