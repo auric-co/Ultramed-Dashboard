@@ -29,7 +29,7 @@ $(document).on("click", ".suspend-alert", function(e) {
         },
         callback: function (result) {
             if(result === true){
-                /*let url = "http://ussd.ultramedhealth.com/api/v1/dashboard/admin/member/update/suspend/" + "<?php echo $_GET['member'] ?>";
+                let url = "http://ussd.ultramedhealth.com/api/v1/dashboard/admin/member/update/suspend/" + id[1];
                 fetch(url, {
                     method: 'POST',
                     cache: 'no-cache',
@@ -37,12 +37,22 @@ $(document).on("click", ".suspend-alert", function(e) {
                         'Content-Type': 'application/json'
                     }
                 }).then(function(data) {
-                    console.log("Response coming");
-                    console.log(data);
+                    let response = data.getJSON();
+                    if(response.success === true){
+                      bootbox.alert({
+                          message:"Member :"+id[0]+ " has been suspended successfully",
+                          button:{
+                              'lable': 'ok',
+                              className: 'btn-success'
+                          }
+                      });
+                    }else{
+
+                    }
                 })
                 .catch(function(error) {
                     console.log(error);
-                }); */
+                });
 
             }else{
                 // may do nothing

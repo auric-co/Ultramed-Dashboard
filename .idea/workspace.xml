@@ -2,20 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0b035a55-88e2-47c6-9cc1-c2dedc6a280f" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/watcherTasks.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/dist/base/blacklist.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/dist/base/confirm.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/dist/base/remove.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/dist/base/suspend.php" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/js/main.js.map" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/base/dependants.php" afterPath="$PROJECT_DIR$/dist/base/dependants.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/base/details.php" afterPath="$PROJECT_DIR$/dist/base/details.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/js/main.js" afterPath="$PROJECT_DIR$/dist/js/main.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/system/System.php" afterPath="$PROJECT_DIR$/dist/system/System.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../Ultramed-Health/app/routes.php" afterPath="$PROJECT_DIR$/../Ultramed-Health/app/routes.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../Ultramed-Health/app/src/system/Admin.php" afterPath="$PROJECT_DIR$/../Ultramed-Health/app/src/system/Admin.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../Ultramed-Health/app/src/system/System.php" afterPath="$PROJECT_DIR$/../Ultramed-Health/app/src/system/System.php" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -39,7 +26,7 @@
       <file leaf-file-name="details.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/dist/base/details.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-369">
+            <state relative-caret-position="952">
               <caret line="61" column="41" lean-forward="false" selection-start-line="61" selection-start-column="41" selection-end-line="61" selection-end-column="41" />
               <folding>
                 <element signature="e#6#89#0#PHP" expanded="true" />
@@ -51,7 +38,7 @@
       <file leaf-file-name="dependants.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/dist/base/dependants.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="284">
+            <state relative-caret-position="5627">
               <caret line="336" column="63" lean-forward="false" selection-start-line="336" selection-start-column="63" selection-end-line="336" selection-end-column="63" />
               <folding />
             </state>
@@ -61,7 +48,7 @@
       <file leaf-file-name="confirm.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/dist/base/confirm.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="510">
+            <state relative-caret-position="425">
               <caret line="30" column="15" lean-forward="false" selection-start-line="30" selection-start-column="15" selection-end-line="30" selection-end-column="15" />
               <folding>
                 <element signature="e#6#90#0#PHP" expanded="true" />
@@ -73,8 +60,8 @@
       <file leaf-file-name="main.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/dist/js/main.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="238">
-              <caret line="18" column="153" lean-forward="false" selection-start-line="18" selection-start-column="153" selection-end-line="18" selection-end-column="153" />
+            <state relative-caret-position="142">
+              <caret line="30" column="32" lean-forward="true" selection-start-line="30" selection-start-column="32" selection-end-line="30" selection-end-column="32" />
               <folding />
             </state>
           </provider>
@@ -356,7 +343,7 @@
       <file leaf-file-name="suspend.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/dist/base/suspend.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="128">
+            <state relative-caret-position="170">
               <caret line="10" column="95" lean-forward="false" selection-start-line="10" selection-start-column="20" selection-end-line="10" selection-end-column="95" />
               <folding />
             </state>
@@ -416,8 +403,8 @@
         <option value="$PROJECT_DIR$/dist/system/System.php" />
         <option value="$PROJECT_DIR$/dist/base/confirm.php" />
         <option value="$PROJECT_DIR$/dist/base/dependants.php" />
-        <option value="$PROJECT_DIR$/dist/js/main.js" />
         <option value="$PROJECT_DIR$/dist/base/details.php" />
+        <option value="$PROJECT_DIR$/dist/js/main.js" />
       </list>
     </option>
   </component>
@@ -468,34 +455,16 @@
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
           </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Ultramed-Dashboard" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Ultramed-Dashboard" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="dist" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="base" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
         </subPane>
       </pane>
-      <pane id="Scratches" />
       <pane id="Scope" />
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../Ultramed-Health" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../store-dashboard" />
     <property name="node.js.path.for.package.eslint" value="project" />
     <property name="nodejs_interpreter_path" value="C:/Program Files/nodejs/node" />
     <property name="node.js.detected.package.eslint" value="true" />
@@ -600,17 +569,18 @@
       <workItem from="1570618651608" duration="9323000" />
       <workItem from="1570696362117" duration="17375000" />
       <workItem from="1570783251094" duration="8371000" />
+      <workItem from="1571005294176" duration="1542000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="76885000" />
+    <option name="totallyTimeSpent" value="78427000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="754" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1301059" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.13161875" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -665,9 +635,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2584">
           <caret line="157" column="67" lean-forward="false" selection-start-line="157" selection-start-column="67" selection-end-line="157" selection-end-column="67" />
-          <folding>
-            <element signature="e#6#88#0#PHP" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -925,9 +892,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#6#88#0#PHP" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -945,55 +909,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="11101">
           <caret line="653" column="20" lean-forward="false" selection-start-line="653" selection-start-column="20" selection-end-line="661" selection-end-column="66" />
-          <folding>
-            <element signature="e#256#277#0#PHP" expanded="false" />
-            <element signature="n#validateParameter#0;n#System#0;n#!!top" expanded="false" />
-            <element signature="n#createString#0;n#System#0;n#!!top" expanded="false" />
-            <element signature="n#login#0;n#System#0;n#!!top" expanded="false" />
-            <element signature="n#changePin#0;n#System#0;n#!!top" expanded="false" />
-            <element signature="n#memberRegister#0;n#System#0;n#!!top" expanded="false" />
-            <element signature="n#addDependant#0;n#System#0;n#!!top" expanded="false" />
-            <element signature="n#getDetails#0;n#System#0;n#!!top" expanded="false" />
-            <element signature="n#subscribe#0;n#System#0;n#!!top" expanded="false" />
-            <element signature="n#subscription#0;n#System#0;n#!!top" expanded="false" />
-            <element signature="n#packages#0;n#System#0;n#!!top" expanded="false" />
-            <element signature="n#subscriptionBill#0;n#System#0;n#!!top" expanded="false" />
-            <element signature="n#BillPayment#0;n#System#0;n#!!top" expanded="false" />
-            <element signature="n#getSubscriptionBill#0;n#System#0;n#!!top" expanded="false" />
-            <element signature="n#registrationInvoice#0;n#System#0;n#!!top" expanded="false" />
-            <element signature="n#invoice#0;n#System#0;n#!!top" expanded="false" />
-            <element signature="n#creditSubscriptionInvoice#0;n#System#0;n#!!top" expanded="false" />
-            <element signature="n#memberInvoice#0;n#System#0;n#!!top" expanded="false" />
-            <element signature="n#age#0;n#System#0;n#!!top" expanded="false" />
-            <element signature="n#invoicePackage#0;n#System#0;n#!!top" expanded="false" />
-            <element signature="n#packagePrice#0;n#System#0;n#!!top" expanded="false" />
-            <element signature="n#dependantInvoice#0;n#System#0;n#!!top" expanded="false" />
-            <marker date="1570711741998" expanded="true" signature="12464:12516" ph="SELECT COUNT... members" />
-            <marker date="1570711741998" expanded="true" signature="12649:12703" ph="SELECT * FRO... member_login" />
-            <marker date="1570711741998" expanded="true" signature="14697:14757" ph="SELECT COUNT... member_login" />
-            <marker date="1570711741998" expanded="true" signature="14891:14952" ph="SELECT `pin`... member_login" />
-            <marker date="1570711741998" expanded="true" signature="15383:15447" ph="UPDATE `memb... " />
-            <marker date="1570711741998" expanded="true" signature="17907:17959" ph="SELECT COUNT... members" />
-            <marker date="1570711741998" expanded="true" signature="18482:18716" ph="INSERT INTO `members`... " />
-            <marker date="1570711741998" expanded="true" signature="19035:19150" ph="INSERT INTO `member_details`... " />
-            <marker date="1570711741998" expanded="true" signature="19189:19341" ph="INSERT INTO `member_login`... " />
-            <marker date="1570711741998" expanded="true" signature="21749:21810" ph="SELECT COUNT... dependant" />
-            <marker date="1570711741998" expanded="true" signature="22305:22522" ph="INSERT INTO `dependant`... " />
-            <marker date="1570711741998" expanded="true" signature="23757:23799" ph="SELECT * FRO... members" />
-            <marker date="1570711741998" expanded="true" signature="24013:24129" ph="SELECT `memb... dependant" />
-            <marker date="1570711741998" expanded="true" signature="26765:26892" ph="INSERT INTO `subscriptions`... " />
-            <marker date="1570711741998" expanded="true" signature="28047:28142" ph="SELECT * FRO... subscriptions" />
-            <marker date="1570711741998" expanded="true" signature="28381:28413" ph="SELECT * FRO... packages" />
-            <marker date="1570711741998" expanded="true" signature="29501:29675" ph="INSERT INTO `payment`... " />
-            <marker date="1570711741998" expanded="true" signature="30535:30656" ph="INSERT INTO `payment_confirmation`... " />
-            <marker date="1570711741998" expanded="true" signature="30932:31073" ph="UPDATE `paym... " />
-            <marker date="1570711741998" expanded="true" signature="32850:32918" ph="SELECT * FRO... payment" />
-            <marker date="1570711741998" expanded="true" signature="35076:35099" ph="SELECT * FRO... members" />
-            <marker date="1570711741998" expanded="true" signature="35768:35941" ph="INSERT INTO `payment`... " />
-            <marker date="1570711741998" expanded="true" signature="36377:36441" ph="SELECT `pack... member_details" />
-            <marker date="1570711741998" expanded="true" signature="36626:36675" ph="SELECT `pric... packages" />
-            <marker date="1570711741998" expanded="true" signature="36863:36912" ph="SELECT * FRO... dependant" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1255,9 +1170,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2584">
           <caret line="157" column="67" lean-forward="false" selection-start-line="157" selection-start-column="67" selection-end-line="157" selection-end-column="67" />
-          <folding>
-            <element signature="e#6#88#0#PHP" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1272,55 +1184,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="21216">
           <caret line="1248" column="42" lean-forward="false" selection-start-line="1248" selection-start-column="42" selection-end-line="1248" selection-end-column="42" />
-          <folding>
-            <element signature="e#256#277#0#PHP" expanded="false" />
-            <element signature="n#validateParameter#0;n#System#0;n#!!top" expanded="false" />
-            <element signature="n#createString#0;n#System#0;n#!!top" expanded="false" />
-            <element signature="n#login#0;n#System#0;n#!!top" expanded="false" />
-            <element signature="n#changePin#0;n#System#0;n#!!top" expanded="false" />
-            <element signature="n#memberRegister#0;n#System#0;n#!!top" expanded="false" />
-            <element signature="n#addDependant#0;n#System#0;n#!!top" expanded="false" />
-            <element signature="n#getDetails#0;n#System#0;n#!!top" expanded="false" />
-            <element signature="n#subscribe#0;n#System#0;n#!!top" expanded="false" />
-            <element signature="n#subscription#0;n#System#0;n#!!top" expanded="false" />
-            <element signature="n#packages#0;n#System#0;n#!!top" expanded="false" />
-            <element signature="n#subscriptionBill#0;n#System#0;n#!!top" expanded="false" />
-            <element signature="n#BillPayment#0;n#System#0;n#!!top" expanded="false" />
-            <element signature="n#getSubscriptionBill#0;n#System#0;n#!!top" expanded="false" />
-            <element signature="n#registrationInvoice#0;n#System#0;n#!!top" expanded="false" />
-            <element signature="n#invoice#0;n#System#0;n#!!top" expanded="false" />
-            <element signature="n#creditSubscriptionInvoice#0;n#System#0;n#!!top" expanded="false" />
-            <element signature="n#memberInvoice#0;n#System#0;n#!!top" expanded="false" />
-            <element signature="n#age#0;n#System#0;n#!!top" expanded="false" />
-            <element signature="n#invoicePackage#0;n#System#0;n#!!top" expanded="false" />
-            <element signature="n#packagePrice#0;n#System#0;n#!!top" expanded="false" />
-            <element signature="n#dependantInvoice#0;n#System#0;n#!!top" expanded="false" />
-            <marker date="1570711741998" expanded="true" signature="12464:12516" ph="SELECT COUNT... members" />
-            <marker date="1570711741998" expanded="true" signature="12649:12703" ph="SELECT * FRO... member_login" />
-            <marker date="1570711741998" expanded="true" signature="14697:14757" ph="SELECT COUNT... member_login" />
-            <marker date="1570711741998" expanded="true" signature="14891:14952" ph="SELECT `pin`... member_login" />
-            <marker date="1570711741998" expanded="true" signature="15383:15447" ph="UPDATE `memb... " />
-            <marker date="1570711741998" expanded="true" signature="17907:17959" ph="SELECT COUNT... members" />
-            <marker date="1570711741998" expanded="true" signature="18482:18716" ph="INSERT INTO `members`... " />
-            <marker date="1570711741998" expanded="true" signature="19035:19150" ph="INSERT INTO `member_details`... " />
-            <marker date="1570711741998" expanded="true" signature="19189:19341" ph="INSERT INTO `member_login`... " />
-            <marker date="1570711741998" expanded="true" signature="21749:21810" ph="SELECT COUNT... dependant" />
-            <marker date="1570711741998" expanded="true" signature="22305:22522" ph="INSERT INTO `dependant`... " />
-            <marker date="1570711741998" expanded="true" signature="23757:23799" ph="SELECT * FRO... members" />
-            <marker date="1570711741998" expanded="true" signature="24013:24129" ph="SELECT `memb... dependant" />
-            <marker date="1570711741998" expanded="true" signature="26765:26892" ph="INSERT INTO `subscriptions`... " />
-            <marker date="1570711741998" expanded="true" signature="28047:28142" ph="SELECT * FRO... subscriptions" />
-            <marker date="1570711741998" expanded="true" signature="28381:28413" ph="SELECT * FRO... packages" />
-            <marker date="1570711741998" expanded="true" signature="29501:29675" ph="INSERT INTO `payment`... " />
-            <marker date="1570711741998" expanded="true" signature="30535:30656" ph="INSERT INTO `payment_confirmation`... " />
-            <marker date="1570711741998" expanded="true" signature="30932:31073" ph="UPDATE `paym... " />
-            <marker date="1570711741998" expanded="true" signature="32850:32918" ph="SELECT * FRO... payment" />
-            <marker date="1570711741998" expanded="true" signature="35076:35099" ph="SELECT * FRO... members" />
-            <marker date="1570711741998" expanded="true" signature="35768:35941" ph="INSERT INTO `payment`... " />
-            <marker date="1570711741998" expanded="true" signature="36377:36441" ph="SELECT `pack... member_details" />
-            <marker date="1570711741998" expanded="true" signature="36626:36675" ph="SELECT `pric... packages" />
-            <marker date="1570711741998" expanded="true" signature="36863:36912" ph="SELECT * FRO... dependant" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1602,7 +1465,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="198">
           <caret line="173" column="0" lean-forward="false" selection-start-line="173" selection-start-column="0" selection-end-line="173" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1642,9 +1504,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2584">
           <caret line="157" column="67" lean-forward="false" selection-start-line="157" selection-start-column="67" selection-end-line="157" selection-end-column="67" />
-          <folding>
-            <element signature="e#6#88#0#PHP" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1695,7 +1554,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2273">
           <caret line="147" column="54" lean-forward="false" selection-start-line="147" selection-start-column="54" selection-end-line="147" selection-end-column="54" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1711,55 +1569,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="10149">
           <caret line="1280" column="1" lean-forward="false" selection-start-line="1280" selection-start-column="1" selection-end-line="1280" selection-end-column="1" />
-          <folding>
-            <element signature="e#256#277#0#PHP" expanded="false" />
-            <element signature="n#validateParameter#0;n#System#0;n#!!top" expanded="false" />
-            <element signature="n#createString#0;n#System#0;n#!!top" expanded="false" />
-            <element signature="n#login#0;n#System#0;n#!!top" expanded="false" />
-            <element signature="n#changePin#0;n#System#0;n#!!top" expanded="false" />
-            <element signature="n#memberRegister#0;n#System#0;n#!!top" expanded="false" />
-            <element signature="n#addDependant#0;n#System#0;n#!!top" expanded="false" />
-            <element signature="n#getDetails#0;n#System#0;n#!!top" expanded="false" />
-            <element signature="n#subscribe#0;n#System#0;n#!!top" expanded="false" />
-            <element signature="n#subscription#0;n#System#0;n#!!top" expanded="false" />
-            <element signature="n#packages#0;n#System#0;n#!!top" expanded="false" />
-            <element signature="n#subscriptionBill#0;n#System#0;n#!!top" expanded="false" />
-            <element signature="n#BillPayment#0;n#System#0;n#!!top" expanded="false" />
-            <element signature="n#getSubscriptionBill#0;n#System#0;n#!!top" expanded="false" />
-            <element signature="n#registrationInvoice#0;n#System#0;n#!!top" expanded="false" />
-            <element signature="n#invoice#0;n#System#0;n#!!top" expanded="false" />
-            <element signature="n#creditSubscriptionInvoice#0;n#System#0;n#!!top" expanded="false" />
-            <element signature="n#memberInvoice#0;n#System#0;n#!!top" expanded="false" />
-            <element signature="n#age#0;n#System#0;n#!!top" expanded="false" />
-            <element signature="n#invoicePackage#0;n#System#0;n#!!top" expanded="false" />
-            <element signature="n#packagePrice#0;n#System#0;n#!!top" expanded="false" />
-            <element signature="n#dependantInvoice#0;n#System#0;n#!!top" expanded="false" />
-            <marker date="1570711741998" expanded="true" signature="12464:12516" ph="SELECT COUNT... members" />
-            <marker date="1570711741998" expanded="true" signature="12649:12703" ph="SELECT * FRO... member_login" />
-            <marker date="1570711741998" expanded="true" signature="14697:14757" ph="SELECT COUNT... member_login" />
-            <marker date="1570711741998" expanded="true" signature="14891:14952" ph="SELECT `pin`... member_login" />
-            <marker date="1570711741998" expanded="true" signature="15383:15447" ph="UPDATE `memb... " />
-            <marker date="1570711741998" expanded="true" signature="17907:17959" ph="SELECT COUNT... members" />
-            <marker date="1570711741998" expanded="true" signature="18482:18716" ph="INSERT INTO `members`... " />
-            <marker date="1570711741998" expanded="true" signature="19035:19150" ph="INSERT INTO `member_details`... " />
-            <marker date="1570711741998" expanded="true" signature="19189:19341" ph="INSERT INTO `member_login`... " />
-            <marker date="1570711741998" expanded="true" signature="21749:21810" ph="SELECT COUNT... dependant" />
-            <marker date="1570711741998" expanded="true" signature="22305:22522" ph="INSERT INTO `dependant`... " />
-            <marker date="1570711741998" expanded="true" signature="23757:23799" ph="SELECT * FRO... members" />
-            <marker date="1570711741998" expanded="true" signature="24013:24129" ph="SELECT `memb... dependant" />
-            <marker date="1570711741998" expanded="true" signature="26765:26892" ph="INSERT INTO `subscriptions`... " />
-            <marker date="1570711741998" expanded="true" signature="28047:28142" ph="SELECT * FRO... subscriptions" />
-            <marker date="1570711741998" expanded="true" signature="28381:28413" ph="SELECT * FRO... packages" />
-            <marker date="1570711741998" expanded="true" signature="29501:29675" ph="INSERT INTO `payment`... " />
-            <marker date="1570711741998" expanded="true" signature="30535:30656" ph="INSERT INTO `payment_confirmation`... " />
-            <marker date="1570711741998" expanded="true" signature="30932:31073" ph="UPDATE `paym... " />
-            <marker date="1570711741998" expanded="true" signature="32850:32918" ph="SELECT * FRO... payment" />
-            <marker date="1570711741998" expanded="true" signature="35076:35099" ph="SELECT * FRO... members" />
-            <marker date="1570711741998" expanded="true" signature="35768:35941" ph="INSERT INTO `payment`... " />
-            <marker date="1570711741998" expanded="true" signature="36377:36441" ph="SELECT `pack... member_details" />
-            <marker date="1570711741998" expanded="true" signature="36626:36675" ph="SELECT `pric... packages" />
-            <marker date="1570711741998" expanded="true" signature="36863:36912" ph="SELECT * FRO... dependant" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -2040,7 +1849,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/dist/base/confirm.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="510">
+        <state relative-caret-position="425">
           <caret line="30" column="15" lean-forward="false" selection-start-line="30" selection-start-column="15" selection-end-line="30" selection-end-column="15" />
           <folding>
             <element signature="e#6#90#0#PHP" expanded="true" />
@@ -2050,7 +1859,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/dist/base/dependants.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="284">
+        <state relative-caret-position="5627">
           <caret line="336" column="63" lean-forward="false" selection-start-line="336" selection-start-column="63" selection-end-line="336" selection-end-column="63" />
           <folding />
         </state>
@@ -2058,7 +1867,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/dist/base/suspend.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="128">
+        <state relative-caret-position="170">
           <caret line="10" column="95" lean-forward="false" selection-start-line="10" selection-start-column="20" selection-end-line="10" selection-end-column="95" />
           <folding />
         </state>
@@ -2066,15 +1875,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/dist/js/main.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="18" column="153" lean-forward="false" selection-start-line="18" selection-start-column="153" selection-end-line="18" selection-end-column="153" />
+        <state relative-caret-position="142">
+          <caret line="30" column="32" lean-forward="true" selection-start-line="30" selection-start-column="32" selection-end-line="30" selection-end-column="32" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/dist/base/details.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-369">
+        <state relative-caret-position="952">
           <caret line="61" column="41" lean-forward="false" selection-start-line="61" selection-start-column="41" selection-end-line="61" selection-end-column="41" />
           <folding>
             <element signature="e#6#89#0#PHP" expanded="true" />
